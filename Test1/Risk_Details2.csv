@@ -1,0 +1,4 @@
+Risk ID,Risk Description,Potential Impact,Tech Stack,Category Of Risks
+R-JV-SEC-001,"Insecure Deserialization in Java applications can lead to remote code execution if untrusted data is deserialized without proper validation, allowing attackers to execute arbitrary commands on the server.","Complete system compromise, remote code execution, data breach.",Java,Security Risks
+R-JV-SEC-002,"Use of outdated or vulnerable third-party libraries (e.g., Log4j, Spring Framework). Failure to regularly scan and patch dependencies can expose the application to known exploits.","Denial of service, data exfiltration, unauthorized access.",Java,Security Risks
+R-JV-SEC-003,"Improper configuration of the Java Security Manager or running with overly permissive security policies can allow untrusted code to perform privileged actions, bypassing security controls.","Sandbox escape, unauthorized file system or network access.",Java,Security Risks
