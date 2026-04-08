@@ -1,0 +1,14 @@
+"Risk ID","Project Name","Sprint/Phase","Task/Item","Owner","Timeline","Financial Metric","SLA Metric","Risk Title","Risk Description","Risk Category","Tech Stack","Risk Subtype","Severity","Likelihood","Potential Impact"
+\
+"R01","Unified Patient Record - Health Information Exchange (HIE) & Interoperability","Sprint 1","Dependency Tracking & PR Approval","Priya M","2026-03-02 to 2026-03-08","NULL","NULL","Access/Approval Delays","Multiple tasks blocked or delayed due to pending PR approvals and access permissions for UAT/prod-like environments. Risk of delivery delays if not resolved promptly.","Technical","NULL","Dependency","Medium","Medium","Sprint delays, reduced velocity"
+\
+"R02","Unified Patient Record - Health Information Exchange (HIE) & Interoperability","Sprint 1","Bug Fixes/Defect Handling","Ramesh K","2026-03-02 to 2026-03-08","NULL","NULL","Defect/Bug Approval Delay","Bug and defect fixes awaiting PR approval, resulting in retest delays and minor schedule slippage.","Technical","QA Testing","Defect","Low","Medium","Minor impact to QA cycle"
+\
+"R03","Unified Patient Record - Health Information Exchange (HIE) & Interoperability","Sprint 1","Integration & Prod Support","Keerthi L, Bala","2026-03-02 to 2026-03-08","NULL","NULL","Environment Access Constraints","Production/integration support activities face minor delays due to access/environment dependencies, causing non-critical timeline shifts.","Operational","NULL","Dependency","Low","Medium","Minor schedule slippage"
+\
+"R04","Unified Patient Record - Health Information Exchange (HIE) & Interoperability","Sprint 2","PR Approval/Architecture Review","Ramesh K","2026-03-09 to 2026-03-15","NULL","NULL","Critical Path Blocked by Approval","PR approval from architecture reviewer pending, blocking bug/defect closure and potentially impacting sprint closure.","Technical","NULL","Dependency","High","Medium","Sprint closure at risk"
+\
+"R05","Unified Patient Record - Health Information Exchange (HIE) & Interoperability","Sprint 5","Certificate Renewal/Log Access","Bala","2026-03-30 to 2026-04-05","NULL","NULL","Production Log/Certificate Blocker","Tasks blocked by pending certificate renewal and production log access, affecting production support and prod-like validation.","Operational","NULL","Dependency","High","Medium","Production validation at risk"
+\
+"R06","Unified Patient Record - Health Information Exchange (HIE) & Interoperability","Sprint 4-8","Roster Changes/Leave Coverage","Multiple","2026-03-23 to 2026-04-26","NULL","NULL","Resource Availability Fluctuation","Planned/unplanned leave (sick/flexi/holiday/roll-off) with backup coverage. If not managed, risk of resource gaps and missed handovers during critical phases.","Resource","NULL","Resource Constraint","Medium","Low","Potential handover gaps"
+\
