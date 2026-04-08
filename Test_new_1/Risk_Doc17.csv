@@ -1,0 +1,7 @@
+"Risk Id","Project Name","Sprint/Phase","Task/Item","Owner","Timeline","Financial Metric","SLA Metric","Risk Title","Risk Description","Risk Category","Tech Stack","Risk Subtype","Severity","Likelihood","Potential Impact"
+\
+"R01","HIE Interoperability","Sprint 1-8","QA Testing","Nisha, Divya","2026-03-02 to 2026-04-27","₹3,25,000 (Over Budget)","Leakage: ~3-4%","Excess Retesting Overrun","Because of repeated defect reopenings and increased QA retesting cycles, there is a risk that test cycles will extend, which could lead to financial loss and delayed delivery.","Financial","QA Testing, JIRA","overrun","Medium","High","Financial loss, delayed delivery"
+\
+"R02","HIE Interoperability","Sprint 1-8","Dependency Handling","Priya M, Keerthi L, Bala","2026-03-02 to 2026-04-27","NULL","Cycle Time: 5-6 days","Dependency-Driven Delay","Because of recurring environment dependencies and PR approval delays, there is a risk that timelines will slip, which could lead to SLA breach and delayed go-live.","Operational","Cloud, APIs, QA Automation, JIRA","dependency","Medium","Medium","SLA breach, delayed go-live"
+\
+"R03","HIE Interoperability","Sprint 1-8","Resource Utilization","Ramesh K, Developers","2026-03-02 to 2026-04-27","Dev: 82% Utilization","NULL","Developer Overload","Because developer utilization reached 82%, there is a risk that resource fatigue will impact code quality and velocity, which could lead to increased defects and delivery slippage.","Resource","JIRA, DevOps","utilization","High","Medium","Quality drop, delivery slippage"
