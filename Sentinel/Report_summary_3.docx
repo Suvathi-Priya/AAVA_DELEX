@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+<w:body>
+
+<!-- Document Title -->
+<w:p>
+<w:pPr>
+<w:jc w:val="center"/>
+<w:spacing w:after="240"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:b/>
+<w:sz w:val="28"/>
+<w:szCs w:val="28"/>
+</w:rPr>
+<w:t>UNIT TEST QUALITY &amp; COVERAGE REPORT</w:t>
+</w:r>
+</w:p>
+
+<!-- Section 1: Scope -->
+<w:p>
+<w:pPr>
+<w:pStyle w:val="Heading1"/>
+<w:spacing w:before="240" w:after="120"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:b/>
+<w:sz w:val="16"/>
+</w:rPr>
+<w:t>1. Scope</w:t>
+</w:r>
+</w:p>
+
+<w:p>
+<w:pPr>
+<w:spacing w:after="120"/>
+</w:pPr>
+<w:r>
+<w:t>This report evaluates unit test coverage and quality across 5 user stories. The scope is restricted to test plans and execution records mapped to these user stories. Analysis excludes non-unit test activities and unrelated defect categories. The user stories form the baseline reference for measuring coverage
