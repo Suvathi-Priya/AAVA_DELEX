@@ -12,7 +12,7 @@ This report evaluates unit test coverage and quality across 10 user stories. The
 
 **User stories Not Covered:** 1
 
-### Coverage Gap Details
+### Coverage Gap Details:
 
 | User Story ID | AC ID | Acceptance Criteria | Impact Level |
 |---------------|-------|-------------------|-------------|
@@ -38,10 +38,10 @@ This report evaluates unit test coverage and quality across 10 user stories. The
 | GOV-001 | AC2 | PII Classification: Given ingested metadata, when system classification rules are applied, then columns like 'Social Security Number' or 'Email' must be labeled as 'PII'. | Critical |
 | GOV-001 | AC3 | Lineage Visualization: Given a Gold table, when viewed in Purview, then the end-to-end lineage back to the Bronze source file must be visible. | High |
 
-### Coverage Score Summary
+### Coverage Score by User Story:
 
-| User Story ID | Coverage Score | Status |
-|---------------|----------------|--------|
+| User Story ID | Coverage Score | Color |
+|---------------|----------------|-------|
 | LZ-001 | 0.00% | Red |
 | STG-001 | 93.30% | Green |
 | SEC-001 | 93.30% | Green |
@@ -54,9 +54,12 @@ This report evaluates unit test coverage and quality across 10 user stories. The
 | GOV-001 | 86.70% | Amber |
 
 **Legend:**
-- **Green** → High coverage (meets quality expectations)
-- **Amber** → Moderate coverage (requires attention)
-- **Red** → Low coverage (critical gaps present)
+
+Green → High coverage (meets quality expectations)
+
+Amber → Moderate coverage (requires attention)
+
+Red → Low coverage (critical gaps present)
 
 ## 3. Test Execution Summary
 
@@ -70,15 +73,13 @@ This report evaluates unit test coverage and quality across 10 user stories. The
 
 **Execution Success Rate:** 87.41%
 
-### Analysis
-
 The overall execution success rate of 87.41% indicates stable coverage across most user stories. Failures are concentrated in security controls, data quality validations, and configuration management components. Unexecuted cases are limited to the Landing Zone Subscription Strategy user story, suggesting gaps in infrastructure testing readiness.
 
 ## 4. Defect Details
 
 **Defect Rate:** 10.67%
 
-### Detailed Defect Analysis
+### Defect Summary:
 
 | Defect ID | Test Case ID | User Story ID | Severity | Defect Category | Impact |
 |-----------|--------------|---------------|----------|-----------------|--------|
@@ -101,47 +102,37 @@ The overall execution success rate of 87.41% indicates stable coverage across mo
 
 ## 5. Quality Scorecard
 
-### Key Metrics
-
-- **Overall Coverage:** 86.7% (9 out of 10 user stories partially covered)
-- **Execution Success Rate:** 87.41%
-- **Defect Rate:** 10.67%
-- **Critical Defects:** 13 out of 16 total defects
-- **Security Defects:** 4 critical defects identified
-- **Data Quality Defects:** 6 critical defects identified
-
-### Risk Assessment
-
-- **High Risk Areas:** Security controls, data protection, compliance validation
-- **Medium Risk Areas:** Data transformation, performance optimization
-- **Low Risk Areas:** Basic functionality testing
-
-## 6. Recommendations
-
-### Immediate Actions Required
-
-1. **Security Remediation:** Address all 4 critical security defects before production deployment
-2. **Data Quality Enhancement:** Implement comprehensive data validation rules for Silver and Gold layers
-3. **Compliance Validation:** Ensure all backup retention and PII classification requirements are met
-4. **Infrastructure Testing:** Complete testing for Landing Zone (LZ-001) user story
-
-### Medium-term Improvements
-
-1. **Test Coverage Enhancement:** Increase coverage for amber-rated user stories to green status
-2. **Performance Optimization:** Address query performance issues in Gold layer
-3. **DevOps Pipeline Stabilization:** Resolve deployment configuration issues
-
-### Long-term Strategy
-
-1. **Automated Testing Integration:** Implement continuous testing in CI/CD pipeline
-2. **Quality Gates:** Establish minimum coverage and defect rate thresholds
-3. **Regular Quality Reviews:** Schedule periodic assessment of test quality metrics
-
-## 7. Conclusion
-
 ### Summary of Findings
 
 The analysis covers 10 user stories with 150 total test cases. Coverage distribution shows 0 fully covered, 9 partially covered, and 1 not covered user story. The execution success rate is 87.41% with a defect rate of 10.67%. Critical gaps are observed in security controls, data quality validations, and infrastructure configuration components.
+
+### Key Metrics:
+
+- **Total User Stories:** 10
+- **Total Test Cases:** 150
+- **Executed Test Cases:** 135
+- **Passed Test Cases:** 118
+- **Failed Test Cases:** 17
+- **Critical Defects:** 13
+- **High Severity Defects:** 3
+
+## 6. Recommendations
+
+### Immediate Actions Required:
+
+1. **Security Controls:** Address critical security defects in STG-001, SEC-001, and SEC-002 user stories
+2. **Data Quality:** Implement comprehensive validation for SLV-001 and SLV-003 transformations
+3. **Infrastructure Testing:** Complete test coverage for LZ-001 Landing Zone user story
+4. **Compliance:** Resolve backup retention and disaster recovery defects in BKP-001
+5. **DevOps Pipeline:** Fix deployment and configuration issues in DOP-001
+
+### Medium-term Improvements:
+
+1. Enhance test automation for data governance scenarios
+2. Implement comprehensive performance testing for Gold layer queries
+3. Establish continuous monitoring for data freshness SLAs
+
+## 7. Conclusion
 
 ### Final Outcome Statement
 
@@ -150,10 +141,3 @@ The current unit test suite demonstrates moderate coverage with significant secu
 ### Conclusion Statement
 
 The unit test coverage and quality are insufficient to proceed without remediation. Critical defects in security controls and data quality validations must be resolved before progression to ensure system reliability and compliance adherence.
-
----
-
-**Report Generated:** Unit Test Quality & Coverage Analysis  
-**Document Version:** 1.0  
-**Classification:** Internal Use  
-**Audit Trail:** Validated and exported with compliance logging enabled
