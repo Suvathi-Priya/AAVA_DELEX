@@ -44,4 +44,4 @@
 
 ---
 
-**Note:** This document was generated as a template structure. The actual report content was not provided in the input task description. Please provide the complete report text to generate a fully populated document with all metrics, tables, and detailed information.
+**Note:** This document was generated with a template structure as the actual report content was not provided in the input. Please provide the complete report text to generate a fully populated document.
