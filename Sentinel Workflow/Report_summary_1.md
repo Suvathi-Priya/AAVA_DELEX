@@ -10,6 +10,10 @@ This report evaluates unit test coverage and quality across 9 user stories. The 
 
 **Exclusions:** Integration tests, system tests, or performance tests, user stories not mapped to test cases, and any external or unrelated defect logs.
 
+**Baseline Definition:** The 9 user stories serve as the baseline reference for measuring coverage, execution success, and defect quality.
+
+---
+
 ## 2. Test Coverage Summary
 
 **Total Use Cases:** 9
@@ -22,10 +26,10 @@ This report evaluates unit test coverage and quality across 9 user stories. The 
 | Partially Covered | 8 | User stories containing a mix of covered and uncovered acceptance criteria |
 | Not Covered | 0 | User stories where none of the acceptance criteria are covered by test cases |
 
-**Coverage Gap Details:**
+### Coverage Gap Details
 
 | User Story ID | AC ID | Acceptance Criteria | Impact Level | Coverage Status |
-|---------------|-------|-------------------|--------------|------------------|
+|---------------|-------|---------------------|--------------|------------------|
 | LZ-001 | AC5 | Cost Center Tagging: Given any resource deployment, when the 'Cost Center' tag is missing, then the deployment must fail validation. | High | Partially Covered |
 | BRZ-001 | AC4 | Retry Logic: Given a transient network failure, when the ingestion fails, then the system must automatically retry 3 times before triggering an alert. | High | Partially Covered |
 | BRZ-002 | AC4 | Latency SLA: Given the streaming ingestion, when a message enters Event Hub, then it must be visible in the Bronze layer within 5 minutes. | High | Partially Covered |
@@ -39,38 +43,36 @@ This report evaluates unit test coverage and quality across 9 user stories. The 
 | GLD-001 | AC4 | Performance Partitioning: Given large datasets in Gold, when stored in Synapse/Fabric, then tables must be partitioned by 'Business Period' (e.g., Fiscal Year) for query optimization. | Medium | Partially Covered |
 | GLD-001 | AC5 | Data Freshness SLA: Given a business day, when a user queries the Gold layer at 8:00 AM, then the data must reflect all transactions up to the previous midnight. | High | Partially Covered |
 
-**Coverage Score:**
+### Coverage Score
 
 | User Story ID | Coverage Score | Color |
 |---------------|----------------|-------|
-| LZ-001 | 80.00% | 🟡 Amber |
+| LZ-001 | 80.00% | 🟠 Amber |
 | SEC-001 | 100.00% | 🟢 Green |
-| BRZ-001 | 80.00% | 🟡 Amber |
-| BRZ-002 | 80.00% | 🟡 Amber |
-| STG-001 | 80.00% | 🟡 Amber |
+| BRZ-001 | 80.00% | 🟠 Amber |
+| BRZ-002 | 80.00% | 🟠 Amber |
+| STG-001 | 80.00% | 🟠 Amber |
 | SLV-001 | 60.00% | 🔴 Red |
 | SLV-002 | 60.00% | 🔴 Red |
 | SLV-003 | 60.00% | 🔴 Red |
 | GLD-001 | 60.00% | 🔴 Red |
 
 **Legend:**
-
 - 🟢 Green (90–100%) → High coverage (meets quality expectations)
-- 🟡 Amber (70–89%) → Moderate coverage (requires attention)
+- 🟠 Amber (70–89%) → Moderate coverage (requires attention)
 - 🔴 Red (<70%) → Low coverage (critical gaps present)
 
-**Coverage Score Analysis:**
+### Coverage Score Analysis
 
-Coverage % = (Covered Acceptance Criteria / Total Acceptance Criteria) × 100
+**Formula:** Coverage % = (Covered Acceptance Criteria / Total Acceptance Criteria) × 100
 
-**Description:**
-
-Coverage Percentage measures the extent to which acceptance criteria are validated by corresponding test cases. It indicates how completely the defined requirements are covered through testing.
+**Description:** Coverage Percentage measures the extent to which acceptance criteria are validated by corresponding test cases. It indicates how completely the defined requirements are covered through testing.
 
 **Components:**
+- **Covered Acceptance Criteria:** Number of acceptance criteria that have at least one mapped test case.
+- **Total Acceptance Criteria:** Total number of acceptance criteria defined across user stories.
 
-- **Covered Acceptance Criteria:** Number of acceptance criteria that have at least one mapped test case
-- **Total Acceptance Criteria:** Total number of acceptance criteria defined across user stories
+---
 
 ## 3. Test Execution Summary
 
@@ -84,7 +86,7 @@ Coverage Percentage measures the extent to which acceptance criteria are validat
 
 **Execution Success Rate:** 90.00%
 
-**Test Execution Summary Details:**
+### Test Execution Summary Details
 
 | User Story ID | Total Test Cases | Executed | Not Executed | Passed | Failed | Execution Rate | Pass Rate |
 |---------------|------------------|----------|--------------|--------|--------|----------------|------------|
@@ -98,50 +100,53 @@ Coverage Percentage measures the extent to which acceptance criteria are validat
 | SLV-003 | 15 | 15 | 0 | 13 | 2 | 100.00% | 86.67% |
 | GLD-001 | 15 | 15 | 0 | 13 | 2 | 100.00% | 86.67% |
 
+---
+
 ## 4. Defect Details
 
 **Defect Rate:** 8.89%
 
-**Defect Rate Analysis:**
+### Defect Rate Analysis
 
-Defect Rate = (Total Defects / Total Test Cases) × 100
+**Formula:** Defect Rate = (Total Defects / Total Test Cases) × 100
 
-**Description:**
-
-Defect Rate measures the proportion of defects identified during testing relative to the total number of test cases executed. It is a key quality metric used to evaluate system stability and testing effectiveness.
+**Description:** Defect Rate measures the proportion of defects identified during testing relative to the total number of test cases executed. It is a key quality metric used to evaluate system stability and testing effectiveness.
 
 **Components:**
+- **Total Defects:** Total number of defects identified during the test cycle.
+- **Total Test Cases:** Total number of test cases executed.
 
-- **Total Defects:** Total number of defects identified during the test cycle
-- **Total Test Cases:** Total number of test cases executed
-
-**Defect Details:**
+### Defect Details
 
 | Defect ID | Test Case ID | User Story ID | Defect Title | Defect Description | Category | Severity | Status |
 |-----------|--------------|---------------|--------------|-------------------|----------|----------|--------|
-| DEF_LZ-001_005 | UT_LZ-001_005 | LZ-001 | Tagging Policy Bypass | Resource was successfully deployed via Terraform without the tag, indicating Policy was not in Enforce mode, violating AC5. | Policy Enforcement | High | Open |
-| DEF_BRZ-001_013 | UT_BRZ-001_013 | BRZ-001 | Retry Logic Failure | Pipeline failed immediately upon first network timeout without triggering retry attempts, violating AC4. | Retry Logic | High | Open |
-| DEF_BRZ-002_012 | UT_BRZ-002_012 | BRZ-002 | Ingestion Latency Breach | Streaming data took 7 minutes to appear in ADLS due to Event Hub capture lag, violating AC4. | Performance SLA | High | Open |
-| DEF_STG-001_009 | UT_STG-001_009 | STG-001 | RBAC Isolation Leak | User with 'Bronze Reader' was able to view 'Gold' file metadata due to incorrect ACL inheritance, violating AC5. | Access Control | Critical | Open |
-| DEF_SLV-001_001 | UT_SLV-001_001 | SLV-001 | Date Standardization Error | Dates remained in MM/DD/YYYY format in the Delta table. | Data Transformation | Medium | Open |
-| DEF_SLV-001_014 | UT_SLV-001_014 | SLV-001 | Schema Enforcement Failure | Data with additional columns was successfully appended, breaking downstream dependencies. | Schema Validation | High | Open |
-| DEF_SLV-002_002 | UT_SLV-002_002 | SLV-002 | MERGE Logic Error | MERGE operation created duplicate records in Silver for existing Business Keys. | Data Quality | Critical | Open |
-| DEF_SLV-002_012 | UT_SLV-002_012 | SLV-002 | Watermark Update Failure | Watermark was not updated post-success, causing the next run to re-process old data. | Watermark Management | High | Open |
-| DEF_SLV-003_001 | UT_SLV-003_001 | SLV-003 | Completeness Check Bypass | Records with NULL CustomerID were loaded to Silver instead of being quarantined. | Data Quality | High | Open |
-| DEF_SLV-003_015 | UT_SLV-003_015 | SLV-003 | Stop-on-Failure Threshold | Pipeline continued processing despite a 12% error rate in the current batch. | Error Handling | Medium | Open |
-| DEF_GLD-001_005 | UT_GLD-001_005 | GLD-001 | Freshness SLA Breach | Data only reflected transactions up to 6 PM previous day due to batch lag. | Data Freshness | High | Open |
-| DEF_GLD-001_014 | UT_GLD-001_014 | GLD-001 | Partitioning Logic Failure | All data was written to the default partition, degrading query performance. | Performance Optimization | Medium | Open |
+| DEF_LZ-001_005 | UT_LZ-001_005 | LZ-001 | Tagging Policy Bypass | Resource was successfully deployed via Terraform without the tag, indicating Policy was not in Enforce mode, violating AC5. | policy_enforcement | High | Open |
+| DEF_BRZ-001_013 | UT_BRZ-001_013 | BRZ-001 | Retry Logic Failure | Pipeline failed immediately upon first network timeout without triggering retry attempts, violating AC4. | retry_logic | High | Open |
+| DEF_BRZ-002_012 | UT_BRZ-002_012 | BRZ-002 | Ingestion Latency Breach | Streaming data took 7 minutes to appear in ADLS due to Event Hub capture lag, violating AC4. | performance_sla | High | Open |
+| DEF_STG-001_009 | UT_STG-001_009 | STG-001 | RBAC Isolation Leak | User with 'Bronze Reader' was able to view 'Gold' file metadata due to incorrect ACL inheritance, violating AC5. | access_control | Critical | Open |
+| DEF_SLV-001_001 | UT_SLV-001_001 | SLV-001 | Date Standardization Error | Dates remained in MM/DD/YYYY format in the Delta table. | data_transformation | Medium | Open |
+| DEF_SLV-001_014 | UT_SLV-001_014 | SLV-001 | Schema Enforcement Failure | Data with additional columns was successfully appended, breaking downstream dependencies. | schema_validation | High | Open |
+| DEF_SLV-002_002 | UT_SLV-002_002 | SLV-002 | MERGE Logic Error | MERGE operation created duplicate records in Silver for existing Business Keys. | data_quality | Critical | Open |
+| DEF_SLV-002_012 | UT_SLV-002_012 | SLV-002 | Watermark Update Failure | Watermark was not updated post-success, causing the next run to re-process old data. | watermark_management | High | Open |
+| DEF_SLV-003_001 | UT_SLV-003_001 | SLV-003 | Completeness Check Bypass | Records with NULL CustomerID were loaded to Silver instead of being quarantined. | data_quality | High | Open |
+| DEF_SLV-003_015 | UT_SLV-003_015 | SLV-003 | Stop-on-Failure Threshold | Pipeline continued processing despite a 12% error rate in the current batch. | error_handling | Medium | Open |
+| DEF_GLD-001_005 | UT_GLD-001_005 | GLD-001 | Freshness SLA Breach | Data only reflected transactions up to 6 PM previous day due to batch lag. | data_freshness | High | Open |
+| DEF_GLD-001_014 | UT_GLD-001_014 | GLD-001 | Partitioning Logic Failure | All data was written to the default partition, degrading query performance. | performance_optimization | Medium | Open |
+
+---
 
 ## 5. Conclusion
 
-**Summary of Findings**
+**Summary of Findings:** The analysis indicates 9 user stories were reviewed with 73.33% overall coverage rate. The coverage distribution shows 1 fully covered, 8 partially covered, and 0 not covered user stories. The execution success rate is 90.00% with a defect rate of 8.89%.
 
-The analysis indicates 9 user stories were reviewed with an overall coverage rate of 73.33%. The execution success rate reflects 90.00% stability across 120 executed test cases. Results show that 12 defects were identified with a defect severity rate of 75.00% representing high and critical issues.
+**Final Outcome Statement:** Results show that the overall average coverage score is 73.33%, overall execution stability is 90.00%, and defect severity rate is 75.00%. Key gaps identified include 2 critical defects and 7 high-severity defects requiring immediate attention.
 
-**Final Outcome Statement**
+**Conclusion Statement:** The current unit test suite demonstrates moderate coverage with significant quality gaps requiring remediation before progression. Critical defects in data quality and access control must be resolved to ensure system reliability and security compliance.
 
-The overall average coverage score of 73.33%, execution stability of 90.00%, and defect severity rate of 75.00% indicate significant gaps requiring remediation. Key gaps identified include critical access control violations, data quality issues, and policy enforcement failures.
+---
 
-**Conclusion Statement**
+**Report Generated:** Unit Test Quality & Coverage Report
 
-The current coverage and quality metrics indicate the unit test suite requires substantial remediation before progression. Critical defects in access control and data quality must be resolved to ensure system reliability and security compliance.
+**Document Version:** 1.0
+
+**Report Date:** 2024
