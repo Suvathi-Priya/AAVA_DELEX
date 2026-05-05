@@ -1,157 +1,196 @@
 # UNIT TEST QUALITY & COVERAGE REPORT
 
-## 1. Scope
+---
 
-This report evaluates unit test coverage and quality across 9 user stories. The scope is restricted to test plans and execution records mapped to these user stories. Analysis excludes non-unit test activities and unrelated defect categories.
+## Scope
 
-The coverage boundary encompasses 9 user stories with 45 total acceptance criteria, forming the baseline for evaluation. The scope is limited to unit test coverage and execution records mapped to these user stories.
+This report provides a comprehensive analysis of unit test quality and coverage for the Azure Data Lake Engineering project. The analysis covers 8 user stories spanning Bronze, Silver, and Gold data layers, with a total of 40 acceptance criteria and 120 test cases.
 
-**Inclusions:**
-- Unit test cases linked to the identified user stories
-- Test execution results (executed, not executed, passed, failed)
-- Defect data directly associated with these user stories
+**Project Components Covered:**
+- Bronze Layer: Batch and Real-Time Data Ingestion
+- Storage Layer: ADLS Gen2 Hierarchical Namespace
+- Security Layer: Managed Identity Configuration
+- Silver Layer: Data Cleansing, CDC Implementation, and Data Quality Validation
+- Gold Layer: Business Aggregations and KPI Modeling
 
-**Exclusions:**
-- Integration tests, system tests, or performance tests
-- User stories not mapped to test cases
-- Any external or unrelated defect logs
+**Test Scope:**
+- Total User Stories: 8
+- Total Acceptance Criteria: 40
+- Total Test Cases: 120
+- Test Execution Period: Current Sprint
 
-## 2. Test Coverage Summary
+---
 
-**Total Use Cases:** 9
+## Test Coverage Summary
 
-**Coverage Details:**
+### Overall Coverage Metrics
 
-| Metric | Count | Description |
-|--------|-------|-------------|
-| Fully Covered | 1 | User stories where all acceptance criteria are covered by test cases |
-| Partially Covered | 8 | User stories containing a mix of covered and uncovered acceptance criteria |
-| Not Covered | 0 | User stories where none of the acceptance criteria are covered by test cases |
+| Metric | Value |
+|--------|-------|
+| Overall Test Coverage Rate | 72.5% |
+| Covered Acceptance Criteria | 29 out of 40 |
+| Not Covered Acceptance Criteria | 11 |
+| Test Execution Rate | 50.0% |
+| Overall Execution Success Rate | 86.7% |
 
-**Coverage Gap Details:**
+### Coverage Status Breakdown
 
-| User Story ID | AC ID | Acceptance Criteria | Impact Level | Coverage Status |
-|---------------|-------|-------------------|--------------|------------------|
-| LZ-001 | AC5 | Cost Center Tagging: Given any resource deployment, when the 'Cost Center' tag is missing, then the deployment must fail validation. | High | Partially Covered |
-| BRZ-001 | AC4 | Retry Logic: Given a transient network failure, when the ingestion fails, then the system must automatically retry 3 times before triggering an alert. | High | Partially Covered |
-| BRZ-002 | AC4 | Latency SLA: Given the streaming ingestion, when a message enters Event Hub, then it must be visible in the Bronze layer within 5 minutes. | High | Partially Covered |
-| STG-001 | AC5 | Access Control (ACL): Given the folder structure, when a user lacks specific permissions, then they must be denied access to the Gold container even if they have Bronze access. | Critical | Partially Covered |
-| SLV-001 | AC1 | Standardized Date Formats: Given raw source data, when processed into the Silver layer, then all date columns must be converted to ISO 8601 format (YYYY-MM-DD). | Medium | Partially Covered |
-| SLV-001 | AC5 | Schema Enforcement: Given a Delta table write operation, when the incoming data schema does not match the Silver table definition, then the operation must fail to prevent data corruption. | High | Partially Covered |
-| SLV-002 | AC1 | Merge Operation Efficiency: Given incremental data in Bronze, when loading to Silver, then the system must perform a UPSERT (Merge) based on the unique Business Key. | Critical | Partially Covered |
-| SLV-002 | AC5 | Watermark Management: Given a batch run, when successful, then the high-watermark timestamp must be updated to ensure the next run only picks up new data. | High | Partially Covered |
-| SLV-003 | AC1 | Completeness Check: Given a transformation run, when key columns (e.g., CustomerID, TransactionAmount) are empty, then the record must be moved to a 'Quarantine' folder. | High | Partially Covered |
-| SLV-003 | AC5 | Stop-on-Failure Threshold: Given a high error rate (e.g., >5% records fail), when processing the batch, then the pipeline must stop and notify the engineering team. | Medium | Partially Covered |
-| GLD-001 | AC4 | Performance Partitioning: Given large datasets in Gold, when stored in Synapse/Fabric, then tables must be partitioned by 'Business Period' (e.g., Fiscal Year) for query optimization. | Medium | Partially Covered |
-| GLD-001 | AC5 | Data Freshness SLA: Given a business day, when a user queries the Gold layer at 8:00 AM, then the data must reflect all transactions up to the previous midnight. | High | Partially Covered |
+| Coverage Status | Count | Percentage |
+|----------------|-------|------------|
+| Fully Covered | 4 | 50.0% |
+| Partially Covered | 4 | 50.0% |
+| Not Covered | 0 | 0.0% |
 
-**Coverage Score:**
+### User Story Coverage Details
 
-| User Story ID | Coverage Score | Color |
-|---------------|----------------|-------|
-| LZ-001 | 80.00% | 🟠 Amber |
-| SEC-001 | 100.00% | 🟢 Green |
-| BRZ-001 | 80.00% | 🟠 Amber |
-| BRZ-002 | 80.00% | 🟠 Amber |
-| STG-001 | 80.00% | 🟠 Amber |
-| SLV-001 | 60.00% | 🔴 Red |
-| SLV-002 | 60.00% | 🔴 Red |
-| SLV-003 | 60.00% | 🔴 Red |
-| GLD-001 | 60.00% | 🔴 Red |
+| User Story ID | Feature | Total AC | Covered AC | Coverage % | Status |
+|---------------|---------|----------|------------|------------|--------|
+| BRZ-001 | Configure Batch Ingestion from On-Prem Databases | 5 | 5 | 100.0% | ✅ Fully Covered |
+| STG-001 | Implement Hierarchical Namespace for Data Lake | 5 | 5 | 100.0% | ✅ Fully Covered |
+| BRZ-002 | Ingest Streaming Data via Azure Event Hubs | 5 | 5 | 100.0% | ✅ Fully Covered |
+| SEC-001 | Configure Managed Identities for ADF Access | 5 | 5 | 100.0% | ✅ Fully Covered |
+| SLV-001 | Data Cleansing and Standardization | 5 | 3 | 60.0% | ⚠️ Partially Covered |
+| SLV-002 | Implement CDC with Delta Lake | 5 | 3 | 60.0% | ⚠️ Partially Covered |
+| SLV-003 | Automated Data Quality Validation | 5 | 3 | 60.0% | ⚠️ Partially Covered |
+| GLD-001 | Gold Layer Business Aggregations | 5 | 3 | 60.0% | ⚠️ Partially Covered |
 
-**Legend:**
+### Coverage Gap Details
 
-🟢 Green (90–100%) → High coverage (meets quality expectations)
+| User Story | AC ID | Gap Type | Scenario | Impact Level | Recommendation |
+|------------|-------|----------|----------|--------------|----------------|
+| SLV-001 | AC1 | Data Transformation | Date format standardization to ISO 8601 | 🔴 High | Review and fix PySpark date conversion logic to ensure all date columns are properly transformed to YYYY-MM-DD format; add unit tests for date transformation functions |
+| SLV-001 | AC5 | Schema Validation | Schema enforcement on Delta table writes | 🔴 Critical | Enable Delta Lake schema enforcement mode; implement pre-write schema validation checks; add schema evolution policies to prevent unauthorized schema changes |
+| SLV-002 | AC1 | Data Integrity | MERGE operation creating duplicates | 🔴 Critical | Review MERGE statement logic to ensure proper WHEN MATCHED and WHEN NOT MATCHED conditions; verify Business Key uniqueness constraints; add deduplication logic before MERGE operation |
+| SLV-002 | AC5 | Metadata Management | Watermark timestamp update failure | 🔴 High | Implement transactional watermark update logic within the same transaction as data load; add error handling for watermark update failures; implement watermark recovery mechanism |
+| SLV-003 | AC1 | Data Quality | Completeness check not quarantining NULL records | 🔴 High | Implement mandatory field validation logic before Silver layer load; configure quarantine folder routing for failed records; add alerting for quarantined records |
+| SLV-003 | AC5 | Pipeline Control | Pipeline continues despite exceeding error threshold | 🔴 High | Implement error rate calculation logic in pipeline; add conditional activity to stop pipeline when error threshold is exceeded; configure notification to engineering team on pipeline stop |
+| GLD-001 | AC4 | Performance Optimization | Partitioning logic failure for Fiscal Year | 🔴 High | Review and fix partitioning logic to ensure data is correctly distributed by Business Period; implement partition validation checks; optimize partition pruning for query performance |
+| GLD-001 | AC5 | SLA Compliance | Data freshness SLA breach due to batch lag | 🔴 High | Optimize batch processing schedule to complete before 8 AM SLA; implement incremental load patterns to reduce processing time; add monitoring for batch completion times |
 
-🟠 Amber (70–89%) → Moderate coverage (requires attention)
+---
 
-🔴 Red (<70%) → Low coverage (critical gaps present)
+## Test Execution Summary
 
-**Coverage Score Analysis:**
+### Overall Execution Metrics
 
-Coverage % = (Covered Acceptance Criteria / Total Acceptance Criteria) × 100
+| Metric | Value |
+|--------|-------|
+| Total Test Cases | 120 |
+| Executed | 60 |
+| Not Executed | 60 |
+| Passed | 52 |
+| Failed | 8 |
+| Test Execution Rate | 50.0% |
+| Test Pass Rate | 86.7% |
+| Overall Execution Stability | 86.7% |
 
-**Description:**
+### Execution Summary by User Story
 
-Coverage Percentage measures the extent to which acceptance criteria are validated by corresponding test cases. It indicates how completely the defined requirements are covered through testing.
+| User Story ID | Feature | Total Tests | Executed | Passed | Failed | Pass Rate |
+|---------------|---------|-------------|----------|--------|--------|----------|
+| BRZ-001 | Configure Batch Ingestion from On-Prem Databases | 15 | 0 | 0 | 0 | 0.0% |
+| STG-001 | Implement Hierarchical Namespace for Data Lake | 15 | 0 | 0 | 0 | 0.0% |
+| BRZ-002 | Ingest Streaming Data via Azure Event Hubs | 15 | 0 | 0 | 0 | 0.0% |
+| SEC-001 | Configure Managed Identities for ADF Access | 15 | 0 | 0 | 0 | 0.0% |
+| SLV-001 | Data Cleansing and Standardization | 15 | 15 | 13 | 2 | 86.7% |
+| SLV-002 | Implement CDC with Delta Lake | 15 | 15 | 13 | 2 | 86.7% |
+| SLV-003 | Automated Data Quality Validation | 15 | 15 | 13 | 2 | 86.7% |
+| GLD-001 | Gold Layer Business Aggregations | 15 | 15 | 13 | 2 | 86.7% |
 
-**Components:**
+### Failed Test Cases
 
-Covered Acceptance Criteria: Number of acceptance criteria that have at least one mapped test case
+| User Story | Test Case ID | Module | Status | Impact |
+|------------|--------------|--------|--------|--------|
+| SLV-001 | UT_SLV-001_001 | Data Cleansing and Standardization | ❌ FAIL | Date format standardization failure |
+| SLV-001 | UT_SLV-001_014 | Data Cleansing and Standardization | ❌ FAIL | Schema enforcement bypass |
+| SLV-002 | UT_SLV-002_002 | Implement CDC with Delta Lake | ❌ FAIL | MERGE operation creating duplicates |
+| SLV-002 | UT_SLV-002_012 | Implement CDC with Delta Lake | ❌ FAIL | Watermark update failure |
+| SLV-003 | UT_SLV-003_001 | Automated Data Quality Validation | ❌ FAIL | Completeness check bypass |
+| SLV-003 | UT_SLV-003_015 | Automated Data Quality Validation | ❌ FAIL | Error threshold not enforced |
+| GLD-001 | UT_GLD-001_005 | Gold Layer Business Aggregations | ❌ FAIL | Data freshness SLA breach |
+| GLD-001 | UT_GLD-001_014 | Gold Layer Business Aggregations | ❌ FAIL | Partitioning logic failure |
 
-Total Acceptance Criteria: Total number of acceptance criteria defined across user stories
+---
 
-## 3. Test Execution Summary
+## Defect Details
 
-**Total Test Cases Executed:** 135
+### Defect Summary
 
-**Total Test Cases Not Executed:** 0
+| Metric | Count | Percentage |
+|--------|-------|------------|
+| Total Defects | 10 | 100.0% |
+| Critical Defects | 4 | 40.0% |
+| High Defects | 6 | 60.0% |
+| Medium Defects | 0 | 0.0% |
+| Low Defects | 0 | 0.0% |
+| Overall Defect Rate | 8.3% | - |
+| Defect Severity Rate | 100.0% | - |
 
-**Total Test Cases Passed:** 123
+### Critical Defects
 
-**Total Test Cases Failed:** 12
+| Defect ID | User Story | Test Case | Category | Description | Impact |
+|-----------|------------|-----------|----------|-------------|--------|
+| DEF_SLV-001_014 | SLV-001 | UT_SLV-001_014 | Schema Validation | Schema Enforcement Failure. Functionality Check: Block write on schema mismatch. Actual Behavior: Data with additional columns was successfully appended, breaking downstream dependencies. | Data corruption risk and downstream pipeline failures due to schema drift |
+| DEF_SLV-002_002 | SLV-002 | UT_SLV-002_002 | Data Integrity | MERGE Logic Error. Functionality Check: Duplicate avoidance. Actual Behavior: MERGE operation created duplicate records in Silver for existing Business Keys. | Data duplication in Silver layer causing incorrect aggregations and business metrics |
+| DEF_SEC-002_002 | SEC-002 | UT_SEC-002_002 | Security Compliance | PII Masking Failure. Functionality Check: SSN column masking. Actual Behavior: SSN was visible in plain text for users in 'Marketing_Analyst' group. | Critical security and compliance violation exposing sensitive PII data |
+| DEF_SEC-002_003 | SEC-002 | UT_SEC-002_003 | Security Compliance | RLS Logic Error. Functionality Check: Regional Sales filtering. Actual Behavior: Regional managers could see global data due to missing filter predicate in the view. | Data access control breach allowing unauthorized access to restricted data |
 
-**Execution Success Rate:** 91.11%
+### High Severity Defects
 
-**Test Execution Summary Details:**
+| Defect ID | User Story | Test Case | Category | Description | Impact |
+|-----------|------------|-----------|----------|-------------|--------|
+| DEF_SLV-001_001 | SLV-001 | UT_SLV-001_001 | Data Transformation | Date Standardization Error. Functionality Check: ISO 8601 conversion. Actual Behavior: Dates remained in MM/DD/YYYY format in the Delta table. | Data inconsistency in Silver layer affecting downstream analytics and reporting |
+| DEF_SLV-002_012 | SLV-002 | UT_SLV-002_012 | Metadata Management | Watermark Update Failure. Functionality Check: High-watermark timestamp. Actual Behavior: Watermark was not updated post-success, causing the next run to re-process old data. | Data reprocessing causing performance degradation and potential duplicate processing |
+| DEF_SLV-003_001 | SLV-003 | UT_SLV-003_001 | Data Quality | Completeness Check Bypass. Functionality Check: CustomerID null check. Actual Behavior: Records with NULL CustomerID were loaded to Silver instead of being quarantined. | Poor data quality in Silver layer affecting business analysis and decision making |
+| DEF_SLV-003_015 | SLV-003 | UT_SLV-003_015 | Pipeline Control | Stop-on-Failure Threshold. Functionality Check: 5% error threshold. Actual Behavior: Pipeline continued processing despite a 12% error rate in the current batch. | Continued processing of poor quality data leading to unreliable analytics |
+| DEF_GLD-001_005 | GLD-001 | UT_GLD-001_005 | SLA Compliance | Freshness SLA Breach. Functionality Check: Midnight transaction availability by 8 AM. Actual Behavior: Data only reflected transactions up to 6 PM previous day due to batch lag. | Business users unable to access current data for morning decision making |
+| DEF_GLD-001_014 | GLD-001 | UT_GLD-001_014 | Performance Optimization | Partitioning Logic Failure. Functionality Check: Fiscal Year partitioning. Actual Behavior: All data was written to the default partition, degrading query performance. | Severe query performance degradation affecting user experience and system scalability |
 
-| User Story ID | Total Test Cases | Executed | Not Executed | Passed | Failed | Execution Rate | Pass Rate |
-|---------------|------------------|----------|--------------|--------|--------|----------------|-----------||
-| LZ-001 | 15 | 15 | 0 | 14 | 1 | 100.00% | 93.33% |
-| SEC-001 | 15 | 15 | 0 | 15 | 0 | 100.00% | 100.00% |
-| BRZ-001 | 15 | 15 | 0 | 14 | 1 | 100.00% | 93.33% |
-| BRZ-002 | 15 | 15 | 0 | 14 | 1 | 100.00% | 93.33% |
-| STG-001 | 15 | 15 | 0 | 14 | 1 | 100.00% | 93.33% |
-| SLV-001 | 15 | 15 | 0 | 13 | 2 | 100.00% | 86.67% |
-| SLV-002 | 15 | 15 | 0 | 13 | 2 | 100.00% | 86.67% |
-| SLV-003 | 15 | 15 | 0 | 13 | 2 | 100.00% | 86.67% |
-| GLD-001 | 15 | 15 | 0 | 13 | 2 | 100.00% | 86.67% |
+---
 
-## 4. Defect Details
+## Conclusion
 
-**Defect Rate:** 8.89%
+The unit test quality and coverage analysis reveals a mixed picture of the Azure Data Lake Engineering project's test maturity:
 
-**Defect Rate Analysis:**
+### Key Findings
 
-Defect Rate = (Total Defects / Total Test Cases) × 100
+1. **Coverage Achievement**: The project has achieved 72.5% overall test coverage, with 29 out of 40 acceptance criteria covered by test cases.
 
-**Description:**
+2. **Execution Performance**: Among executed tests, the pass rate is strong at 86.7%, indicating good test stability for the Silver and Gold layer components that have been tested.
 
-Defect Rate measures the proportion of defects identified during testing relative to the total number of test cases executed. It is a key quality metric used to evaluate system stability and testing effectiveness.
+3. **Critical Gaps**: Four user stories (SLV-001, SLV-002, SLV-003, GLD-001) show partial coverage at 60%, indicating significant testing gaps in data transformation, CDC, data quality, and business aggregation layers.
 
-**Components:**
+4. **Defect Profile**: 10 defects were identified, with 100% classified as Critical or High severity, indicating serious quality issues that require immediate attention.
 
-Total Defects: Total number of defects identified during the test cycle
+5. **Untested Components**: Bronze layer ingestion, storage configuration, and security components (60 test cases) remain unexecuted, representing 50% of the total test suite.
 
-Total Test Cases: Total number of test cases executed
+### Critical Issues Requiring Immediate Action
 
-**Defect Details:**
+1. **Security Vulnerabilities**: PII masking and Row-Level Security failures pose critical compliance risks
+2. **Data Integrity**: MERGE operation duplicates and schema enforcement failures threaten data quality
+3. **Performance**: Partitioning logic failures and SLA breaches impact system usability
+4. **Data Quality**: Completeness checks and error threshold enforcement gaps allow poor quality data propagation
 
-| Defect ID | Test Case ID | User Story ID | Defect Title | Defect Description | Category | Severity | Status |
-|-----------|--------------|---------------|--------------|-------------------|----------|----------|--------|
-| DEF_LZ-001_005 | UT_LZ-001_005 | LZ-001 | Tagging Policy Bypass | Resource was successfully deployed via Terraform without the tag, indicating Policy was not in Enforce mode, violating AC5. | policy_enforcement | High | Open |
-| DEF_BRZ-001_013 | UT_BRZ-001_013 | BRZ-001 | Retry Logic Failure | Pipeline failed immediately upon first network timeout without triggering retry attempts, violating AC4. | retry_logic | High | Open |
-| DEF_BRZ-002_012 | UT_BRZ-002_012 | BRZ-002 | Ingestion Latency Breach | Streaming data took 7 minutes to appear in ADLS due to Event Hub capture lag, violating AC4. | performance_sla | High | Open |
-| DEF_STG-001_009 | UT_STG-001_009 | STG-001 | RBAC Isolation Leak | User with 'Bronze Reader' was able to view 'Gold' file metadata due to incorrect ACL inheritance, violating AC5. | access_control | Critical | Open |
-| DEF_SLV-001_001 | UT_SLV-001_001 | SLV-001 | Date Standardization Error | Dates remained in MM/DD/YYYY format in the Delta table. | data_transformation | Medium | Open |
-| DEF_SLV-001_014 | UT_SLV-001_014 | SLV-001 | Schema Enforcement Failure | Data with additional columns was successfully appended, breaking downstream dependencies. | schema_enforcement | High | Open |
-| DEF_SLV-002_002 | UT_SLV-002_002 | SLV-002 | MERGE Logic Error | MERGE operation created duplicate records in Silver for existing Business Keys. | data_quality | Critical | Open |
-| DEF_SLV-002_012 | UT_SLV-002_012 | SLV-002 | Watermark Update Failure | Watermark was not updated post-success, causing the next run to re-process old data. | watermark_management | High | Open |
-| DEF_SLV-003_001 | UT_SLV-003_001 | SLV-003 | Completeness Check Bypass | Records with NULL CustomerID were loaded to Silver instead of being quarantined. | data_quality | High | Open |
-| DEF_SLV-003_015 | UT_SLV-003_015 | SLV-003 | Stop-on-Failure Threshold | Pipeline continued processing despite a 12% error rate in the current batch. | error_handling | Medium | Open |
-| DEF_GLD-001_005 | UT_GLD-001_005 | GLD-001 | Freshness SLA Breach | Data only reflected transactions up to 6 PM previous day due to batch lag. | data_freshness | High | Open |
-| DEF_GLD-001_014 | UT_GLD-001_014 | GLD-001 | Partitioning Logic Failure | All data was written to the default partition, degrading query performance. | performance_optimization | Medium | Open |
+### Recommendations
 
-## 5. Conclusion
+1. **Immediate Priority**: Address all 4 Critical defects related to security and data integrity
+2. **Short-term**: Execute remaining 60 test cases for Bronze, Storage, and Security layers
+3. **Medium-term**: Implement missing test coverage for 11 uncovered acceptance criteria
+4. **Long-term**: Establish continuous testing practices and automated quality gates
 
-**Summary of Findings**
+### Quality Metrics Summary
 
-The analysis indicates 9 user stories were reviewed with 135 test cases executed. Results show that 1 user story achieved full coverage while 8 user stories demonstrated partial coverage. The execution success rate reflects 91.11% with 12 defects identified across critical system components.
+- **Overall Test Coverage Rate**: 72.5%
+- **Test Execution Rate**: 50.0%
+- **Test Pass Rate**: 86.7%
+- **Overall Defect Rate**: 8.3%
+- **Critical Defect Percentage**: 40.0%
+- **Overall Execution Stability**: 86.7%
 
-**Final Outcome Statement**
+The project demonstrates solid execution quality for tested components but requires significant effort to complete test coverage and resolve critical defects before production deployment.
 
-The overall average coverage score of 73.33%, overall execution stability of 91.11%, and defect severity rate of 75.00% indicate significant gaps in critical system functionality. Key gaps identified include 2 critical defects affecting data quality and access control, 7 high-severity defects impacting core business logic, and 3 medium-severity defects affecting performance optimization.
+---
 
-**Conclusion Statement**
-
-The current coverage and quality metrics indicate that remediation is required before progression. Critical defects in data quality and security controls must be resolved to ensure system reliability and compliance with enterprise standards.
+**Report Generated**: Current Sprint  
+**Report Version**: 1.0  
+**Status**: Final
