@@ -57,7 +57,7 @@ Coverage Percentage measures the extent to which acceptance criteria are validat
 **Components:**
 
 - Covered Acceptance Criteria: Number of acceptance criteria that have at least one mapped test case
-- Total Acceptance Criteria: Total number of acceptance criteria defined across user stories
+- Total Acceptance Criteria: Total acceptance criteria defined across user stories
 
 ## 3. Test Execution Summary
 
