@@ -30,6 +30,8 @@ Analysis excludes integration tests, system tests, performance tests, user stori
 | STG-001 | AC2 | AC2: Domain Organization: Given the /bronze container, when data is ingested, then it must be organized by domain folders (e.g., /sales, /finance). | NULL | Partially Covered |
 | STG-001 | AC5 | AC5: Access Control (ACL): Given the folder structure, when a user lacks specific permissions, then they must be denied access to the Gold container even if they have Bronze access. | NULL | Partially Covered |
 
+### Coverage Score
+
 | User Story ID | Coverage Score | Color |
 |---|---:|---|
 | LZ-001 | 90.00% | 🟢 Green |
