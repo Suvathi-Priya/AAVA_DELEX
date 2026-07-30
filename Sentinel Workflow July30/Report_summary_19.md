@@ -1,77 +1,53 @@
-<div align="center">
+# UNIT TEST QUALITY & COVERAGE REPORT
 
-# **UNIT TEST QUALITY & COVERAGE REPORT**
-
-</div>
-
-# Scope
-
-This report covers 17 user stories: SCM-001 through SCM-008, and SCM-010 through SCM-019. A total of 255 test cases were identified in the uploaded unit test plans and 253 corresponding execution log entries were identified in the uploaded test logs.
-
-Across the analyzed scope, 85 acceptance criteria (ACs) were derived from the source user story documents. Document completeness is partially satisfactory: user story, test plan, and test log documents were available for 17 user stories; no defect log documents were provided as separate uploads, so defect details were derived from defect references embedded in the test execution logs. SCM-008 file naming is inconsistent between user story and test artifacts, but inferable and readable. Two planned test cases do not have matching executable log entries: SCM-003 TP_SCM3_014 and TP_SCM3_015 are absent from the execution log. Overall unit test scope includes functional positive, negative, and edge/boundary validation coverage for all available stories.
-
-# Test Coverage Summary
+## Scope
+This report covers 17 user stories: SCM-001 to SCM-007 and SCM-010 to SCM-019. A total of 255 planned test cases and 253 executed test log entries were identified from the uploaded source documents, with 2 planned test cases lacking corresponding execution log records: TP_SCM3_014 and TP_SCM3_015 under SCM-003. No separate defect log documents were provided; defect details were derived from the defect references embedded in the test log documents. All reviewed user story documents contained identifiable user story IDs, titles, and acceptance criteria. All reviewed test plan documents contained test case IDs and explicit AC mappings. All reviewed test log documents contained execution results per test case. Overall unit test scope includes positive, negative, and edge/boundary scenarios across all identified acceptance criteria.
 
 ## Coverage Gap Details
-
 | User Story ID | AC ID | Coverage Gap Reason | Coverage Status |
 |---|---|---|---|
-| SCM-002 | AC2 | Resume date not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-002 | AC3 | Scheduled resume date not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-002 | AC4 | Pause start date not explicitly validated in audit log coverage. | Partially Covered |
-| SCM-003 | AC3 | Next billing cycle changes not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-003 | AC5 | Execution log missing for TP_SCM3_015 boundary scenario; threshold interpretation remains weakly evidenced. | Partially Covered |
-| SCM-005 | AC4 | Reminder date and channel used not explicitly validated by mapped test cases. | Partially Covered |
-| SCM-005 | AC5 | No explicit positive test validates both recipients for above-threshold high-value subscription. | Partially Covered |
-| SCM-006 | AC4 | Previous plan, downgraded plan, effective date, and timestamp not explicitly decomposed across test coverage. | Partially Covered |
-| SCM-006 | AC5 | Customer retention review not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-007 | AC3 | Billing change summary not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-007 | AC4 | Subscription ID, transfer date, and timestamp not explicitly validated; authorization reference covered only in edge scenario and failed. | Partially Covered |
-| SCM-010 | AC5 | Reason code not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-011 | AC5 | Budget verification not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-012 | AC5 | Root-cause review not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-013 | AC5 | Quarterly business review not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-014 | AC5 | Reason code not explicitly validated by any mapped test case. | Partially Covered |
-| SCM-019 | AC5 | Logistics scheduling not explicitly validated by any mapped test case. | Partially Covered |
+| SCM-002 | AC2 | Resume date required by AC not validated by any identified test case. | Partially Covered |
+| SCM-002 | AC3 | Scheduled resume date required by AC not validated by any identified test case. | Partially Covered |
+| SCM-002 | AC4 | Pause start date required by AC not explicitly validated in audit log test coverage. | Partially Covered |
+| SCM-003 | AC1 | Edge scenario for past preferred upgrade date has no execution log; TP_SCM3_014 missing from test log. | Partially Covered |
+| SCM-003 | AC3 | Next billing cycle changes required by AC not validated by any identified test case. | Partially Covered |
+| SCM-003 | AC5 | Boundary scenario for exactly 50% price increase has no execution log; TP_SCM3_015 missing from test log. | Partially Covered |
+| SCM-005 | AC4 | Channel used and complete delivery status behavior are not fully validated by identified test cases; only customer/subscription IDs and failed status scenario are covered. | Partially Covered |
+| SCM-005 | AC5 | No identified test case validates positive scenario requiring reminders to both customer and assigned account manager for subscriptions greater than $10,000. | Partially Covered |
+| SCM-006 | AC2 | Adjusted billing amount required by AC not validated by any identified positive content test case. | Partially Covered |
+| SCM-006 | AC4 | Previous plan, downgraded plan, effective date, credit issued, and timestamp are not fully validated by identified audit log tests. | Partially Covered |
+| SCM-006 | AC5 | Customer retention review required by AC not validated by any identified test case. | Partially Covered |
+| SCM-007 | AC3 | Billing change summary required by AC not validated by any identified test case. | Partially Covered |
+| SCM-007 | AC4 | Subscription ID, transfer date, and timestamp are not fully validated by identified audit log tests. | Partially Covered |
+| SCM-010 | AC5 | Reason code required by AC not validated by any identified test case. | Partially Covered |
+| SCM-011 | AC5 | Budget verification required by AC not validated by any identified test case. | Partially Covered |
+| SCM-012 | AC5 | Root-cause review required by AC not validated by any identified test case. | Partially Covered |
+| SCM-013 | AC5 | Quarterly business review required by AC not validated by any identified test case. | Partially Covered |
+| SCM-014 | AC5 | Reason code required by AC not validated by any identified test case. | Partially Covered |
+| SCM-019 | AC5 | Logistics scheduling required by AC not validated by any identified test case. | Partially Covered |
 
-# Consistency Analysis
-
-| Test Case ID | Consistency Type | Description | Mapped User Story ID | Mapped AC ID | Impact Level |
-|---|---|---|---|---|---|
-| TP_SCM3_014 | Missing Test Log | Test case exists in test plan but no execution log entry was found. | SCM-003 | AC1 | Medium |
-| TP_SCM3_015 | Missing Test Log | Test case exists in test plan but no execution log entry was found. | SCM-003 | AC5 | Medium |
-| SCM008 artifacts | Naming Inconsistency | User story file uses SCM-008 while plan/log files use SCM008; mapping is inferable from content. | SCM-008 | NULL | Low |
-| UT_SCM1_014 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-001 | AC2 | High |
-| UT_SCM1_015 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-001 | AC5 | High |
-| TP_SCM2_014 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-002 | AC1 | High |
-| TP_SCM2_015 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-002 | AC5 | High |
-| UT_SCM8_001 to UT_SCM8_015 vs TP_SCM8_001 to TP_SCM8_015 | ID Mismatch | Test plan IDs use TP prefix while execution log IDs use UT prefix; AC/story mapping is inferable but not directly consistent. | SCM-008 | Multiple | Medium |
-
-## Data Mapping Inconsistency Details
-
+## Consistency Analysis
 | Test Case ID | Consistency Type | Description | User Story ID | AC ID | Impact Level |
 |---|---|---|---|---|---|
-| TP_SCM3_014 | Missing Test Log | Test case exists in test plan but no execution log entry was found. | SCM-003 | AC1 | Medium |
-| TP_SCM3_015 | Missing Test Log | Test case exists in test plan but no execution log entry was found. | SCM-003 | AC5 | Medium |
-| SCM008 artifacts | Naming Inconsistency | User story file uses SCM-008 while plan/log files use SCM008; mapping is inferable from content. | SCM-008 | NULL | Low |
-| UT_SCM1_014 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-001 | AC2 | High |
-| UT_SCM1_015 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-001 | AC5 | High |
-| TP_SCM2_014 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-002 | AC1 | High |
-| TP_SCM2_015 | Status Inconsistency | Execution status marked Passed while actual result states test not yet executed. | SCM-002 | AC5 | High |
-| UT_SCM8_001 to UT_SCM8_015 vs TP_SCM8_001 to TP_SCM8_015 | ID Mismatch | Test plan IDs use TP prefix while execution log IDs use UT prefix; AC/story mapping is inferable but not directly consistent. | SCM-008 | Multiple | Medium |
+| TP_SCM3_014 | Missing Test Log | Planned test case present in test plan but no corresponding execution result found in test log. | SCM-003 | AC1 | High |
+| TP_SCM3_015 | Missing Test Log | Planned test case present in test plan but no corresponding execution result found in test log. | SCM-003 | AC5 | High |
 
-## Consistency Metrics Summary
+### Data Mapping Inconsistency Details
+| Test Case ID | Consistency Type | Description | User Story ID | AC ID | Impact Level |
+|---|---|---|---|---|---|
+| TP_SCM3_014 | Missing Test Log | Planned test case present in test plan but no corresponding execution result found in test log. | SCM-003 | AC1 | High |
+| TP_SCM3_015 | Missing Test Log | Planned test case present in test plan but no corresponding execution result found in test log. | SCM-003 | AC5 | High |
 
+### Consistency Metrics Summary
 | Metric | Count |
 |---|---|
-| Total test cases | 255 |
-| Total test logs | 253 |
-| Missing test cases | 0 |
-| Missing test logs | 2 |
-| Consistency status | Partially Consistent |
+| Total Test Cases | 255 |
+| Total Test Logs | 253 |
+| Missing Test Cases | 0 |
+| Missing Test Logs | 2 |
+| Consistency Status | Partially Consistent |
 
-# Defect Details
-
+## Defect Details
 | User Story ID | AC ID | Defect ID | Test Case ID | Defect Title / Description |
 |---|---|---|---|---|
 | SCM-001 | AC2 | DEF-SCM1-001 | UT_SCM1_005 | Notification template rendering issue |
@@ -93,9 +69,6 @@ Across the analyzed scope, 85 acceptance criteria (ACs) were derived from the so
 | SCM-007 | AC5 | DEF-SCM7-102 | TP_SCM7_012 | Compliance approval workflow not initiated for transfers involving tax jurisdiction change only without entity change |
 | SCM-007 | AC4 | DEF-SCM7-103 | TP_SCM7_014 | Audit log authorization reference field empty when transfer initiated via bulk admin API |
 | SCM-007 | AC2 | DEF-SCM7-101 | TP_SCM7_015 | New owner transfer notification not triggered when transfer is initiated via bulk admin API endpoint |
-| SCM-008 | AC1 | DEF-SCM8-001 | UT_SCM8_003 | Points posting service delay |
-| SCM-008 | AC3 | DEF-SCM8-002 | UT_SCM8_007 | Balance refresh cache issue |
-| SCM-008 | AC5 | DEF-SCM8-003 | UT_SCM8_009 | Redemption workflow synchronization issue |
 | SCM-010 | AC2 | DEF-SCM10-001 | UT_SCM10_005 | Alert content template renders incorrect quantity field |
 | SCM-010 | AC5 | DEF-SCM10-002 | UT_SCM10_009 | Approval workflow fails to trigger for bulk adjustments processed in the same batch |
 | SCM-011 | AC2 | DEF-SCM11-001 | UT_SCM11_005 | Notification template does not populate requestor details field |
@@ -117,6 +90,5 @@ Across the analyzed scope, 85 acceptance criteria (ACs) were derived from the so
 | SCM-019 | AC2 | DEF-SCM19-001 | UT_SCM19_005 | Notification fails to identify destination warehouse manager when transfer spans regions |
 | SCM-019 | AC5 | DEF-SCM19-002 | UT_SCM19_009 | Regional manager approval workflow not triggered when transfer is split across multiple shipments |
 
-# Conclusion
-
-Unit test coverage is broad but not fully audit-ready due to 21.18% partially covered ACs, two missing test log entries, and multiple status/mapping inconsistencies. Remediation should prioritize correction of execution log integrity issues, closure of explicit AC coverage gaps, and resolution of the 42 reported defects before sign-off.
+## Conclusion
+Unit test coverage is broadly strong, but the report identifies multiple partially covered acceptance criteria, two missing execution logs in SCM-003, and recurring defects concentrated in notification content generation and approval/escalation workflow enforcement. Remediation should prioritize executing the missing SCM-003 edge cases, adding tests for omitted AC obligations, and correcting the identified workflow and notification defects before compliance closure.
