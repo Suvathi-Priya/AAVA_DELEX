@@ -2,54 +2,57 @@
 
 ## Scope
 
-This report covers 10 user stories (SCM-010 to SCM-019), 150 planned unit test cases, and 150 executed test log entries derived directly from the uploaded user story, test plan, and test log documents. Document completeness and integrity validation is satisfactory for the provided scope: each user story contains an identifiable ID, title, and 5 acceptance criteria; each test plan contains test case IDs mapped to acceptance criteria and story IDs; each test log contains execution results per test case; no separate defect log documents were provided, so defect details were derived from defect references embedded in the test log documents. Overall, 50 acceptance criteria were assessed, all are covered by at least one mapped test case, 34.00 defects were identified from execution evidence, missing test cases = 0, missing test logs = 0, and no unreadable documents were detected.
+This report covers 10 user stories (SCM-010 to SCM-019), 50 acceptance criteria, 150 planned unit test cases, and 150 corresponding execution log entries reviewed directly from the uploaded source documents. Document completeness and integrity are acceptable for all reviewed items: each user story contains an identifiable ID, title, and acceptance criteria; each test plan contains test case IDs with explicit AC mapping; each test log contains execution status per test case; no separate defect log documents were provided, so defect details were derived from the defect references embedded in the execution logs. Overall consistency summary: total test cases = 150, total test logs = 150, missing test cases = 0, missing test logs = 0, consistency status = Consistent.
+
+Coverage assessment by derived AC mapping indicates 45 acceptance criteria are Fully Covered and 5 acceptance criteria are Partially Covered; 0 acceptance criteria are Not Covered.
 
 ## Coverage Gap Details
 
 | User Story ID | AC ID | Coverage Gap Reason | Coverage Status |
 |---|---|---|---|
-| SCM-010 | AC4 | No testcase mapped for payment method used.; No testcase mapped for renewal amount. | Partially Covered |
-| SCM-011 | AC3 | No testcase mapped for effective end date. | Partially Covered |
-| SCM-011 | AC5 | No testcase mapped for finance team review before refund issuance.; Defect observed in execution: refund calculation returns small negative value for last-day-of-cycle cancellations | Partially Covered |
-| SCM-012 | AC4 | No testcase mapped for prorated amount.; No testcase mapped for effective date. | Partially Covered |
-| SCM-013 | AC3 | No testcase mapped for expiration. | Partially Covered |
-| SCM-013 | AC5 | No testcase mapped for administrator notification.; Defect observed in execution: inaccurate license count during rapid revoke/reassign | Partially Covered |
-| SCM-014 | AC4 | No testcase mapped for approver (if applicable).; Defect observed in execution: refund reason truncated in audit log for long free-text values | Partially Covered |
-| SCM-015 | AC2 | No testcase mapped for specified number of days before expiration. | Partially Covered |
-| SCM-016 | AC3 | No testcase mapped for total subscription cost. | Partially Covered |
+| SCM-010 | AC2 | Defect observed in plan detail/price inclusion scenario for annual-billed subscriptions. | Partially Covered |
+| SCM-010 | AC4 | No testcase mapped for payment method used. No testcase mapped for renewal amount. | Partially Covered |
+| SCM-010 | AC5 | Defect observed in suspension after 3 failed retries scenario. Missing explicit testcase for full retry sequence up to 3 attempts. | Partially Covered |
+| SCM-011 | AC3 | No testcase mapped for effective end date display. | Partially Covered |
+| SCM-011 | AC5 | No testcase mapped for finance team review before refund issuance. Defect observed in last-day prorated refund calculation edge scenario. | Partially Covered |
+| SCM-012 | AC4 | No testcase mapped for prorated amount in audit log. No testcase mapped for effective date in audit log. | Partially Covered |
+| SCM-013 | AC3 | No testcase mapped for license expiration display. | Partially Covered |
+| SCM-013 | AC5 | No testcase mapped for administrator notification of license limit. Defect observed in quick revoke/reassign count accuracy scenario. | Partially Covered |
+| SCM-015 | AC2 | No testcase mapped for validation of specified reminder lead time. | Partially Covered |
+| SCM-016 | AC3 | No testcase mapped for total subscription cost display. | Partially Covered |
 | SCM-016 | AC5 | No testcase mapped for regional regulation exception. | Partially Covered |
-| SCM-017 | AC4 | No testcase mapped for old payment method reference.; Defect observed in execution: no audit log entry created on failed update attempt | Partially Covered |
-| SCM-017 | AC5 | No testcase mapped for immediate retry using new payment method. | Partially Covered |
-| SCM-018 | AC3 | No testcase mapped for outstanding balance. | Partially Covered |
-| SCM-018 | AC5 | No testcase mapped for restore full access within defined SLA. | Partially Covered |
-| SCM-019 | AC2 | No testcase mapped for 30 days in advance timing requirement. | Partially Covered |
-| SCM-019 | AC4 | No testcase mapped for old price.; No testcase mapped for new price. | Partially Covered |
+| SCM-017 | AC4 | No testcase mapped for old payment method reference capture. Defect observed for failed update audit logging. | Partially Covered |
+| SCM-017 | AC5 | No testcase mapped for immediate retry execution using new payment method. Existing testcase validates pending retry precondition only. | Partially Covered |
+| SCM-018 | AC3 | No testcase mapped for outstanding balance display. | Partially Covered |
+| SCM-018 | AC5 | No testcase mapped for restoration within defined SLA. | Partially Covered |
+| SCM-019 | AC2 | No testcase mapped for validation of 30 days advance notice. | Partially Covered |
+| SCM-019 | AC4 | No testcase mapped for old price capture in audit log. No testcase mapped for new price capture in audit log. | Partially Covered |
 
 ## Consistency Analysis
 
-| Testcase ID | Consistency Type | Description | Mapped User Story ID | Mapped Acceptance Criteria ID | Impact Level |
+| Test Case ID | Consistency Type | Description | User Story ID | AC ID | Impact Level |
 |---|---|---|---|---|---|
-| NULL | Direct | All 150 test cases in the uploaded test plans are explicitly mapped to a user story ID and acceptance criteria ID; corresponding 150 execution log entries were found for the same test case IDs. No ambiguous, duplicate, or missing mappings were identified from the provided documents. | NULL | NULL | Low |
+| NULL | Direct | All 150 test cases in the reviewed test plans include explicit mapping to user story ID and acceptance criteria ID; no ambiguous, duplicate, or missing mappings identified. | NULL | NULL | Low |
 
 ## Data Mapping Inconsistency Details
 
 | Test Case ID | Consistency Type | Description | User Story ID | AC ID | Impact Level |
 |---|---|---|---|---|---|
-| NULL | Direct | All 150 test cases in the uploaded test plans are explicitly mapped to a user story ID and acceptance criteria ID; corresponding 150 execution log entries were found for the same test case IDs. No ambiguous, duplicate, or missing mappings were identified from the provided documents. | NULL | NULL | Low |
+| NULL | Direct | All 150 test cases in the reviewed test plans include explicit mapping to user story ID and acceptance criteria ID; no ambiguous, duplicate, or missing mappings identified. | NULL | NULL | Low |
 
 ## Consistency Metrics Summary
 
 | Metric | Count |
 |---|---|
-| total test cases | 150 |
-| total test logs | 150 |
-| missing test cases | 0 |
-| missing test logs | 0 |
-| consistency status | Consistent |
+| total_testcases | 150 |
+| total_testlogs | 150 |
+| missing_testcases | 0 |
+| missing_testlogs | 0 |
+| consistency_status | Consistent |
 
 ## Defect Details
 
-| Defect ID | Test Case ID | User Story ID | Defect Description |
+| Defect ID | Test Case ID | User Story ID | Defect Title / Description |
 |---|---|---|---|
 | DEF-SCM10-101 | TP_SCM10_005 | SCM-010 | Reminder notification omits current plan price for annual-billed subscriptions |
 | DEF-SCM10-102 | TP_SCM10_012 | SCM-010 | Subscription remains active state after 3rd failed retry instead of moving to suspended |
@@ -74,4 +77,4 @@ This report covers 10 user stories (SCM-010 to SCM-019), 150 planned unit test c
 
 ## Conclusion
 
-Unit test traceability is structurally consistent and all acceptance criteria have some level of coverage, but multiple acceptance criteria are only partially covered and 20.00 execution defects were evidenced, so the overall unit test quality status is At Risk. Remediation should prioritize closing unmapped requirement elements in audit, timing, notification, SLA, and portal-detail coverage, and resolving all failed execution defects before sign-off.
+The unit test set is structurally consistent and substantially complete, but quality risk remains because multiple acceptance criteria are only partially covered and 20 executed test cases failed with linked defects. Remediation should prioritize closing uncovered requirement elements in audit, timing, notification, SLA, and portal-display scenarios and retesting all defect-affected acceptance criteria before sign-off.
